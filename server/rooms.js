@@ -79,7 +79,7 @@ var roomsManager = {
 
   editShape: function (shape, socket) {
     rooms[socket.room][shape.socketId][shape.shapeId]['mouseX'] = shape.mouseX;
-    rooms[socket.room][shape.socketId][shape.shapeId]['mouseY'] = shape.mouseY;   
+    rooms[socket.room][shape.socketId][shape.shapeId]['mouseY'] = shape.mouseY;
   },
 
   moveShape: function (shape, socket) {

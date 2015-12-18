@@ -1,7 +1,6 @@
 angular.module('whiteboard.services.receive', [])
 .factory('Receive', function (Sockets, EventHandler) {
   Sockets.on('showExisting', function (data) {
-    console.log(data);
     for (socketId in data) {
       if (Object.keys(data[socketId]).length) {
         for (shapeId in data[socketId]) {

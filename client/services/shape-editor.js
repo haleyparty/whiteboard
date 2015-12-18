@@ -77,10 +77,11 @@ angular.module('whiteboard.services.shapeeditor', [])
     });
   }
 
-  var changeText = function (shape, x, y) {
+  var changeText = function (shape, x, y, tool) {
     shape.attr({
       x: x,
-      y: y
+      y: y,
+      text: tool.text
     });
   };
 
@@ -93,7 +94,9 @@ angular.module('whiteboard.services.shapeeditor', [])
       'text': changeText
     };
     var shape = BoardData.getShapeByID(id, socketID);
-    shapeHandlers[tool.name](shape, x, y);
+    
+    // optional tool argument for text change
+    shapeHandlers[tool.name](shape, x, y, tool);
   };
 
   function finishShape (id, socketID, tool) {
