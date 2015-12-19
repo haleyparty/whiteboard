@@ -1,32 +1,32 @@
 angular.module('whiteboard.services.eventhandler', [])
 .factory('EventHandler', ['BoardData', 'ShapeBuilder', 'ShapeEditor', 'ShapeManipulation', 'Snap', function (BoardData, ShapeBuilder, ShapeEditor, ShapeManipulation, Snap) {
 
-  function setSocketID (socketId) {
-    BoardData.setSocketID(socketId);
+  function setSocketId (socketId) {
+    BoardData.setSocketId(socketId);
   };
 
   function createShape (id, socketId, tool, x, y) {
     ShapeBuilder.newShape(id, socketId, tool, x, y);
   }
 
-  function editShape (id, socketID, tool, x, y) {
-  	ShapeEditor.editShape(id, socketID, tool, x, y);
+  function editShape (id, socketId, tool, x, y) {
+  	ShapeEditor.editShape(id, socketId, tool, x, y);
   }
 
-  function finishShape (id, socketID, tool) {
-    ShapeEditor.finishShape(id, socketID, tool);
+  function finishShape (id, socketId, tool) {
+    ShapeEditor.finishShape(id, socketId, tool);
   }
 
-  function deleteShape (id, socketID) {
-    ShapeEditor.deleteShape(id, socketID);
+  function deleteShape (id, socketId) {
+    ShapeEditor.deleteShape(id, socketId);
   }
 
-  function moveShape (id, socketID, x, y) {
-    ShapeManipulation.moveShape(id, socketID, x, y);
+  function moveShape (id, socketId, x, y) {
+    ShapeManipulation.moveShape(id, socketId, x, y);
   }
 
-  function finishMovingShape (id, socketID) {
-    ShapeManipulation.finishMovingShape (id, socketID);
+  function finishMovingShape (id, socketId) {
+    ShapeManipulation.finishMovingShape (id, socketId);
   }
 
   function cursor (screenPosition) {
@@ -55,7 +55,7 @@ angular.module('whiteboard.services.eventhandler', [])
 
   return {
     cursor: cursor,
-    setSocketID: setSocketID,
+    setSocketId: setSocketId,
     createShape: createShape,
     editShape: editShape,
     finishShape: finishShape,

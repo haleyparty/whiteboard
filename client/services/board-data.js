@@ -20,9 +20,9 @@ angular.module('whiteboard.services.boarddata', [])
   var cursor;
   var shapeStorage = {};
   var currentShape;
-  var currentShapeID;
+  var currentShapeId;
   var editorShape;
-  var socketID;
+  var socketId;
 
   var tool = {
     name: 'path',
@@ -133,23 +133,23 @@ angular.module('whiteboard.services.boarddata', [])
     return $canvas;
   }
 
-  function setSocketID (id) {
-    socketID = id;
+  function setSocketId (id) {
+    socketId = id;
   }
 
-  function getSocketID () {
-    return socketID;
+  function getSocketId () {
+    return socketId;
   }
 
-  function pushToStorage (id, socketID, shape) {
-    if (!shapeStorage[socketID]) {
-      shapeStorage[socketID] = {};
+  function pushToStorage (id, socketId, shape) {
+    if (!shapeStorage[socketId]) {
+      shapeStorage[socketId] = {};
     }
-    shapeStorage[socketID][id] = shape;
+    shapeStorage[socketId][id] = shape;
   }
 
-  function getShapeByID (id, socketID) {
-    return shapeStorage[socketID][id];
+  function getShapeById (id, socketId) {
+    return shapeStorage[socketId][id];
   }
 
   function getCurrentShape () {
@@ -157,20 +157,20 @@ angular.module('whiteboard.services.boarddata', [])
   }
 
   function setCurrentShape (id) {
-    currentShape = shapeStorage[socketID][id];
+    currentShape = shapeStorage[socketId][id];
   }
 
   function unsetCurrentShape () {
     currentShape = null;
   }
 
-  function getCurrentShapeID () {
-    return currentShapeID;
+  function getCurrentShapeId () {
+    return currentShapeId;
   }
 
-  function generateShapeID () {
-    currentShapeID = Raphael._oid;
-    return currentShapeID;
+  function generateShapeId () {
+    currentShapeId = Raphael._oid;
+    return currentShapeId;
   }
 
   function getCurrentTool () {
@@ -205,16 +205,16 @@ angular.module('whiteboard.services.boarddata', [])
     moveCursor: moveCursor,
     createBoard: createBoard,
     getCurrentShape: getCurrentShape,
-    getShapeByID: getShapeByID,
+    getShapeById: getShapeById,
     getCurrentTool: getCurrentTool,
-    generateShapeID: generateShapeID,
-    getCurrentShapeID: getCurrentShapeID,
+    generateShapeId: generateShapeId,
+    getCurrentShapeId: getCurrentShapeId,
     setColors: setColors,
     setZoomScale: setZoomScale,
     getZoomScale: getZoomScale,
     getCanvas: getCanvas,
-    setSocketID: setSocketID,
-    getSocketID: getSocketID,
+    setSocketId: setSocketId,
+    getSocketId: getSocketId,
     setCurrentToolName: setCurrentToolName,
     getBoard: getBoard,
     getScalingFactor: getScalingFactor,
